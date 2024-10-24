@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import About from './pages/About';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
 
@@ -39,16 +37,11 @@ function App() {
   };
 
   return (
-    <Router>
+    <div>
       <Navbar title="TextUtils" backgroundColor={backgroundColor} textColor={textColor} toggleMode={toggleMode} />
       <Alert alertMsg={alert} />
-      <div className="container my-3">
-        <Routes>
-          <Route path="/" element={<TextForm heading="Try TextUtils" backgroundColor={backgroundColor} textColor={textColor} showAlert={showAlert} />} />
-          <Route path="/about" element={<About backgroundColor={backgroundColor} textColor={textColor} />} />
-        </Routes>
-      </div>
-    </Router>
+      <TextForm heading="Try TextUtils" backgroundColor={backgroundColor} textColor={textColor} showAlert={showAlert} />
+    </div>
   );
 }
 
